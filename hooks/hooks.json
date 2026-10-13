@@ -1,0 +1,41 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "View|ReadFile|Read",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "View(*runbook.md*)",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/telemetry_claude.py\"",
+            "timeout": 5
+          },
+          {
+            "type": "command",
+            "if": "ReadFile(*runbook.md*)",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/telemetry_claude.py\"",
+            "timeout": 5
+          },
+          {
+            "type": "command",
+            "if": "Read(*runbook.md*)",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/telemetry_claude.py\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "SubagentStart": [
+      {
+        "matcher": ".*infrastructure-discoverer.*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/telemetry_claude.py\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

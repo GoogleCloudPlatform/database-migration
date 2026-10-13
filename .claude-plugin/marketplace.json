@@ -1,0 +1,14 @@
+{
+  "name": "database-migration-marketplace",
+  "owner": {
+    "name": "Cloud Database Migration Service",
+    "email": "cloud-dms@google.com"
+  },
+  "plugins": [
+    {
+      "name": "database-migration-agents",
+      "description": "Extends the agent with capabilities to plan, configure, and troubleshoot database migrations via Google Cloud Database Migration Service (DMS).",
+      "source": "."
+    }
+  ]
+}

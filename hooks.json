@@ -1,0 +1,16 @@
+{
+  "dms-telemetry-all": {
+    "PreToolUse": [
+      {
+        "matcher": ".*(invoke_subagent|view_file|read_file).*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 scripts/telemetry_agy.py",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

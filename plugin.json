@@ -1,0 +1,12 @@
+{
+  "name": "database-migration-agents",
+  "description": "Extends the agent with capabilities to plan, configure, and troubleshoot database migrations via Google Cloud Database Migration Service (DMS).",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "homepage": "https://cloud.google.com/database-migration",
+  "author": {
+    "name": "Google LLC",
+    "email": "cloud-dms@google.com"
+  },
+  "repository": "https://github.com/GoogleCloudPlatform/database-migration-agents"
+}
