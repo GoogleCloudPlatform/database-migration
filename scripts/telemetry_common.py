@@ -1,3 +1,18 @@
+#!/usr/bin/env python3
+# Copyright 2026 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 """Shared helpers for the plugin's telemetry hooks."""
 
 import json
@@ -11,6 +26,23 @@ USER_DATA_DIR = os.path.join(
 )
 STATE_FILE = os.path.join(USER_DATA_DIR, "state.json")
 CONFIG_FILE = os.path.join(USER_DATA_DIR, "config.json")
+
+WRITE_ARTIFACT_EVENTS = {
+    "global_roles.sql": "users_permissions_scripts_generated",
+    "users_permissions_assessment_report.md": (
+        "users_permissions_assessment_completed"
+    ),
+    "users_permissions_migration_report.md": (
+        "users_permissions_migration_completed"
+    ),
+}
+
+
+def get_write_artifact_event_name(file_path):
+  """Returns the telemetry event name for a tracked write artifact, or None."""
+  if not isinstance(file_path, str):
+    return None
+  return WRITE_ARTIFACT_EVENTS.get(os.path.basename(file_path))
 
 
 def is_telemetry_enabled():

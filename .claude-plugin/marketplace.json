@@ -6,7 +6,7 @@
   },
   "plugins": [
     {
-      "name": "database-migration-agents",
+      "name": "database-migration",
       "description": "Extends the agent with capabilities to plan, configure, and troubleshoot database migrations via Google Cloud Database Migration Service (DMS).",
       "source": "."
     }

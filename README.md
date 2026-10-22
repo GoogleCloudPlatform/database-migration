@@ -1,4 +1,4 @@
-# Database Migration Agents Plugin
+# Database Migration Plugin
 
 > [!NOTE] **Preview:** This plugin is currently in "**Preview**". While we
 > encourage you to try it out and provide feedback, it is not yet considered
@@ -28,7 +28,7 @@ environment.
 You can add the plugin using the Antigravity CLI:
 
 ```bash
-agy plugins install https://github.com/GoogleCloudPlatform/database-migration-agents
+agy plugins install https://github.com/GoogleCloudPlatform/database-migration
 ```
 
 ### Option 2: Claude Code
@@ -36,13 +36,13 @@ agy plugins install https://github.com/GoogleCloudPlatform/database-migration-ag
 Add the database migration marketplace for Claude plugins:
 
 ```bash
-claude plugin marketplace add GoogleCloudPlatform/database-migration-agents
+claude plugin marketplace add GoogleCloudPlatform/database-migration
 ```
 
 Install the Claude plugin:
 
 ```bash
-claude plugin install database-migration-agents@database-migration-marketplace
+claude plugin install database-migration@database-migration-marketplace
 ```
 
 ## Supported Migration Paths
@@ -72,9 +72,9 @@ infrastructure discovery:
 
 ## Usage Statistics
 
-The Database Migration Agents plugin collects anonymous usage statistics (such
-as which migration runbooks are used and the migration type) to help us improve
-the plugin. **We do not collect personal information, prompt texts, or database
+The Database Migration Plugin collects anonymous usage statistics (such as which
+migration runbooks are used and the migration type) to help us improve the
+plugin. **We do not collect personal information, prompt texts, or database
 contents.**
 
 To opt out, either set `DO_NOT_TRACK=1` in the environment where you run your

@@ -11,7 +11,7 @@ the user's infrastructure.
 
 **CRITICAL INSTRUCTION**: Before you begin, use your file reading tool to read
 the rules file located at
-`<plugin_root_path>/skills/database-migration/references/rules.md`. You must
+`<plugin_root_path>/skills/create-migration/references/rules.md`. You must
 adhere to these rules strictly.
 
 **Inputs Provided by Caller:**
@@ -22,8 +22,8 @@ adhere to these rules strictly.
 -   `destination_engine`: The type of destination database engine.
 -   `terraform_directory` or `gcloud_directory`: Path to use for provisioning
     required GCP resources.
--   `plugin_root_path`: The absolute path to the database-migration-service
-    plugin directory.
+-   `plugin_root_path`: The absolute path to the database-migration plugin
+    directory.
 
 ### 1. Infrastructure Exploration
 

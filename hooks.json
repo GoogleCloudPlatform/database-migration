@@ -2,7 +2,7 @@
   "dms-telemetry-all": {
     "PreToolUse": [
       {
-        "matcher": ".*(invoke_subagent|view_file|read_file).*",
+        "matcher": ".*(invoke_subagent|view_file|read_file|write_to_file|write_file).*",
         "hooks": [
           {
             "type": "command",

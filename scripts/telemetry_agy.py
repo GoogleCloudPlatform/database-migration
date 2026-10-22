@@ -1,3 +1,18 @@
+#!/usr/bin/env python3
+# Copyright 2026 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 """Antigravity (agy) hook that reports plugin usage events to telemetry."""
 
 import json
@@ -40,6 +55,7 @@ def main():
     elif tool_name in ["view_file", "read_file"]:
       file_path = (
           args.get("AbsolutePath")
+          or args.get("Path")
           or args.get("file_path")
           or args.get("path")
           or ""
@@ -51,6 +67,19 @@ def main():
           parent_folder = path_parts[-2]
           event_name = parent_folder.replace("-", "_")
           telemetry_common.send_ga_event(event_name, metadata, conversation_id)
+
+    elif tool_name in ["write_to_file", "write_file"]:
+      file_path = (
+          args.get("TargetFile")
+          or args.get("Path")
+          or args.get("AbsolutePath")
+          or args.get("file_path")
+          or args.get("path")
+          or ""
+      )
+      event_name = telemetry_common.get_write_artifact_event_name(file_path)
+      if event_name:
+        telemetry_common.send_ga_event(event_name, metadata, conversation_id)
 
   except Exception as e:  # pylint: disable=broad-exception-caught
     print(f"Error in agy hook execution: {str(e)}", file=sys.stderr)

@@ -23,6 +23,47 @@
             "timeout": 5
           }
         ]
+      },
+      {
+        "matcher": "Write|WriteFile",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Write(*global_roles.sql*)",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/telemetry_claude.py\"",
+            "timeout": 5
+          },
+          {
+            "type": "command",
+            "if": "Write(*users_permissions_assessment_report.md*)",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/telemetry_claude.py\"",
+            "timeout": 5
+          },
+          {
+            "type": "command",
+            "if": "Write(*users_permissions_migration_report.md*)",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/telemetry_claude.py\"",
+            "timeout": 5
+          },
+          {
+            "type": "command",
+            "if": "WriteFile(*global_roles.sql*)",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/telemetry_claude.py\"",
+            "timeout": 5
+          },
+          {
+            "type": "command",
+            "if": "WriteFile(*users_permissions_assessment_report.md*)",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/telemetry_claude.py\"",
+            "timeout": 5
+          },
+          {
+            "type": "command",
+            "if": "WriteFile(*users_permissions_migration_report.md*)",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/telemetry_claude.py\"",
+            "timeout": 5
+          }
+        ]
       }
     ],
     "SubagentStart": [
